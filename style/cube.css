@@ -1,0 +1,74 @@
+.scene {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc( 100% - 300px );
+    height: 500px;
+    /*border: 1px solid #c3590a;*/
+    perspective: 250px;
+}
+
+.cube {
+    width: 300px;
+    height: 200px;
+    /*border: 1px solid #4C65F8;*/
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    animation: spin 5s linear infinite;
+}
+
+.cube:hover {
+    animation-play-state: running;
+}
+.cube:not(:hover) {
+    animation-play-state: paused;
+}
+
+@keyframes spin {
+    0% {
+        transform: translateZ(-100px) rotateY(0deg) ;
+    }
+    100% {
+        transform: translateZ(-100px) rotateY(360deg);
+    }
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.front {
+    width: 200px;
+    height: 200px;
+    transform: rotateY(0deg) translateZ(100px);
+}
+
+.back {
+    width: 200px;
+    height: 200px;
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.right {
+    width: 200px;
+    height: 200px;
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.left {
+    width: 200px;
+    height: 200px;
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+@media all and (max-width: 640px)  {
+    .scene{
+        width: 100%;
+    }
+}
